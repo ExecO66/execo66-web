@@ -1,0 +1,35 @@
+{
+  "name": "execo66-web",
+  "version": "1.0.0",
+  "description": "Web interface for ExecO66",
+  "repository": "https://github.com/ExecO66/execo66-web",
+  "author": "@innub",
+  "license": "GPL-3.0-only",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:format":"next lint --fix"
+  },
+  "dependencies": {
+    "@stitches/react": "^1.2.6",
+    "next": "12.0.8",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "zustand": "^3.6.9"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.12",
+    "@types/react": "17.0.38",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "8.7.0",
+    "eslint-config-next": "12.0.8",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
+    "typescript": "4.5.5"
+  }
+}

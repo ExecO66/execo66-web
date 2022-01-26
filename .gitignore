@@ -1,0 +1,12 @@
+/node_modules
+/build
+
+/.next/
+/out/
+
+*.log
+
+.env.dev
+.env.prod
+
+*.tsbuildinfo
