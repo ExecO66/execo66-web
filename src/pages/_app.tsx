@@ -1,9 +1,10 @@
-import type { NextPage } from "next";
+import "~styles/globals.css";
+import type { AppProps } from "next/app";
 import Head from "next/head";
 
-const Home: NextPage = () => {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="">
+    <>
       <Head>
         <title>Execo66</title>
         <meta
@@ -11,8 +12,9 @@ const Home: NextPage = () => {
           content="Making life easier for CS teachers and students"
         />
       </Head>
-    </div>
+      <Component {...pageProps} />
+    </>
   );
-};
+}
 
-export default Home;
+export default MyApp;

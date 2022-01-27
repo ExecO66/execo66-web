@@ -1,11 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+:root {
+  --colors-primary: #fafafa;
+  --colors-secondary: #efefef;
+  --colors-contrast: #191919;
+  --colors-punch: #ee4e4e;
+}
 
 html,
-body {
+body,
+#__next {
   padding: 0;
   margin: 0;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  width: 100%;
+  height: 100%;
+  background-color: var(--colors-primary);
 }
 
 a {
