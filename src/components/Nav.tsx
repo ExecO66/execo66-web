@@ -31,17 +31,6 @@ export const Nav: FC = () => {
             matchPath={(x) => x.startsWith("/teacher")}
             pathname={pathname}
           />
-
-          <Link href="/assignment-history" passHref>
-            <a>
-              <NavItem
-                title="Past Assignments"
-                Icon={SvgSolidArchive}
-                matchPath={(x) => x === "/assignment-history"}
-                pathname={pathname}
-              />
-            </a>
-          </Link>
         </ul>
       </div>
     </>
