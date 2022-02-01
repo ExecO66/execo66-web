@@ -9,23 +9,20 @@ export const SubmittedAssignmentsList: FC = () => {
 
   return (
     <div className="w-full h-full bg-primary px-20 py-10">
-      <div>
-        <div className="flex items-center gap-3">
-          <SvgChevronDown
-            className={`w-4 h-4 transition-all duration-300 ${
-              open ? "" : "-rotate-90"
-            }`}
-            onClick={() => setOpen(!open)}
-          />
-          <h1 className="text-contrast font-semibold text-2xl">
-            Submitted Assignments
-          </h1>
-        </div>
-        <div
-          className="w-full bg-secondary my-4"
-          style={{ height: "3px" }}
-        ></div>
+      <div
+        className="flex items-center gap-3 select-none cursor-pointer"
+        onClick={() => setOpen(!open)}
+      >
+        <SvgChevronDown
+          className={`w-4 h-4 transition-all duration-300 ${
+            open ? "" : "-rotate-90"
+          }`}
+        />
+        <h1 className="text-contrast font-semibold text-2xl">
+          Submitted Assignments
+        </h1>
       </div>
+      <div className="w-full bg-secondary my-4" style={{ height: "3px" }}></div>
       <article
         className={`w-2/3 py-5 flex flex-col gap-8 overflow-hidden ${
           open ? "" : "max-h-0 py-0"
