@@ -5,10 +5,15 @@
 @tailwind utilities;
 
 :root {
-  --colors-primary: #fafafa;
+  --colors-primary: #f7f7f7;
   --colors-secondary: #efefef;
   --colors-contrast: #191919;
   --colors-punch: #ee4e4e;
+}
+
+html {
+  /* prevent overflow-y page reposition */
+  overflow-y: scroll;
 }
 
 html,
@@ -30,4 +35,16 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.gradient-orange {
+  background: linear-gradient(89.62deg, #e07474 0%, #e8d849 100%);
+}
+
+.gradient-blue {
+  background: linear-gradient(89.62deg, #4dacdd 0%, #9a6af4 100%);
+}
+
+.gradient-green-purple {
+  background: linear-gradient(89.62deg, #74dac1 0%, #d577ed 100%);
 }

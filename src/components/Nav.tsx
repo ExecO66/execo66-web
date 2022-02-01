@@ -10,38 +10,41 @@ export const Nav: FC = () => {
   const { pathname } = useRouter();
 
   return (
-    <div className="w-2/12 h-full bg-secondary">
-      <ul className="font-semibold text-md pt-24">
-        <Link href="/dash" passHref>
-          <a>
-            <NavItem
-              title="Dashboard"
-              Icon={SvgSolidDashboard}
-              matchPath={(x) => x === "/dash"}
-              pathname={pathname}
-            />
-          </a>
-        </Link>
+    <>
+      <div className="w-2/12 h-full relative"></div>
+      <div className="w-2/12 h-full fixed top-0 left-0 bg-secondary">
+        <ul className="font-semibold text-md pt-24">
+          <Link href="/dash" passHref>
+            <a>
+              <NavItem
+                title="Dashboard"
+                Icon={SvgSolidDashboard}
+                matchPath={(x) => x === "/dash"}
+                pathname={pathname}
+              />
+            </a>
+          </Link>
 
-        <NavItem
-          title="Teacher Options"
-          Icon={SvgSolidBookmark}
-          matchPath={(x) => x.startsWith("/teacher")}
-          pathname={pathname}
-        />
+          <NavItem
+            title="Teacher Options"
+            Icon={SvgSolidBookmark}
+            matchPath={(x) => x.startsWith("/teacher")}
+            pathname={pathname}
+          />
 
-        <Link href="/assignment-history" passHref>
-          <a>
-            <NavItem
-              title="Past Assignments"
-              Icon={SvgSolidArchive}
-              matchPath={(x) => x === "/assignment-history"}
-              pathname={pathname}
-            />
-          </a>
-        </Link>
-      </ul>
-    </div>
+          <Link href="/assignment-history" passHref>
+            <a>
+              <NavItem
+                title="Past Assignments"
+                Icon={SvgSolidArchive}
+                matchPath={(x) => x === "/assignment-history"}
+                pathname={pathname}
+              />
+            </a>
+          </Link>
+        </ul>
+      </div>
+    </>
   );
 };
 
@@ -58,9 +61,9 @@ const NavItem: FC<{
 }> = ({ title, pathname, matchPath, Icon }) => (
   <li
     className={`flex px-10 py-5 mb-4 hover:bg-primary relative select-none cursor-pointer ${
-      matchPath(pathname) &&
-      "bg-primary rounded-br-full border-l-4 border-punch"
+      matchPath(pathname) && "bg-primary border-l-4 border-punch"
     }`}
+    style={{ borderBottomRightRadius: "35px" }}
   >
     <Icon />
     <NavTitle>{title}</NavTitle>
