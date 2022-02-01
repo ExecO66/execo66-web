@@ -10,7 +10,7 @@ export const IncompleteAssignmentsList: FC = () => {
       <div className="mt-10 mb-5">
         <IncompleteLabel />
       </div>
-      <article className="w-2/3 p-5 flex flex-col gap-5">
+      <article className="w-2/3 p-5 flex flex-col gap-8">
         {[1, 2, 3, 4].map((_, i) => (
           <IncompleteAssignment key={i} />
         ))}
@@ -21,7 +21,7 @@ export const IncompleteAssignmentsList: FC = () => {
 
 const IncompleteAssignment: FC = () => {
   return (
-    <div className="flex h-24 gap-10">
+    <div className="flex h-24 gap-5">
       <DateBox
         title="Due"
         dateStr="Jan 5"

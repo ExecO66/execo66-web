@@ -27,7 +27,7 @@ export const SubmittedAssignmentsList: FC = () => {
         ></div>
       </div>
       <article
-        className={`w-2/3 py-5 flex flex-col gap-5 overflow-hidden ${
+        className={`w-2/3 py-5 flex flex-col gap-8 overflow-hidden ${
           open ? "" : "max-h-0 py-0"
         }`}
       >
@@ -41,7 +41,7 @@ export const SubmittedAssignmentsList: FC = () => {
 
 const SubmittedAssignment: FC = () => {
   return (
-    <div className="flex h-24 gap-10">
+    <div className="flex h-24 gap-5">
       <DateBox
         title="Finished"
         dateStr="Jan 5"
