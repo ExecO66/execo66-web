@@ -1,4 +1,3 @@
-import { SvgSolidArchive } from "icons/SolidArchive";
 import { SvgSolidBookmark } from "icons/SolidBookmark";
 import { SvgSolidDashboard } from "icons/SolidDashboard";
 import { useRouter } from "next/router";

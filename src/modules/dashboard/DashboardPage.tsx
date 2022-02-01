@@ -1,4 +1,4 @@
-import { Nav } from "components/Nav";
+import { Nav } from "components/Nav/Nav";
 import { NextPage } from "next";
 import { AssignmentsPanelWrap } from "./AssignmentsPanelWrap";
 
