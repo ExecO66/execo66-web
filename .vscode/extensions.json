@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint",
+		"2gua.rainbow-brackets"
+	],
+	"unwantedRecommendations": [
+		
+	]
+}

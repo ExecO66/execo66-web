@@ -17,19 +17,6 @@ module.exports = {
         "sans-serif",
       ],
     },
-    extend: {
-      colors: {
-        primary: "var(--colors-primary)",
-        secondary: "var(--colors-secondary)",
-        contrast: "var(--colors-contrast)",
-        punch: "var(--colors-punch)",
-        white: "#ffffff",
-        yellow: {
-          light: "#ffcd1d52",
-          dark: "#705E00",
-        },
-      },
-    },
   },
   plugins: [],
 };
