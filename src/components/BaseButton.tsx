@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 const colorClassnames = {
-  primary: "bg-[#957ED6] hover:bg-[#8c77c9] disabled:bg-[#8979b8]",
-  secondary: "bg-[#FAFAFF] hover:bg-[#F6F6F6] border-2 border-[#C7C7CC]",
+  primary: "bg-primary-500 hover:bg-primary-600 disabled:bg-primary-300",
+  secondary: "bg-neutral-100 hover:bg-neutral-50 border-2 border-neutral-400",
 };
 
 export interface BaseButtonProps

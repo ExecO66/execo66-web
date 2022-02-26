@@ -14,12 +14,12 @@ export const LoginSlide = () => {
   }
 
   return (
-    <div className="w-full h-full flex justify-center">
+    <div className="w-full h-full flex justify-center bg-neutral-50">
       <div className="p-8 my-[15%] sm:my-[10%] flex flex-col justify-center">
-        <h1 className="text-2xl xxs:text-3xl tracking-wide font-bold">
+        <h1 className="text-2xl xxs:text-3xl tracking-wide font-bold text-neutral-900">
           Welcome to ExecO
         </h1>
-        <h1 className="text-lg xxs:text-xl tracking-wide font-bold text-[#957ED6] mb-[33px]">
+        <h1 className="text-lg xxs:text-xl tracking-wide font-bold text-primary-500 mb-[33px]">
           Login
         </h1>
         <div className="flex flex-col gap-[6px]">
@@ -32,7 +32,7 @@ export const LoginSlide = () => {
           />
         </div>
         <div className="relative flex flex-col gap-[6px] mt-[5%]">
-          <h3 className="absolute top-1 right-0 font-medium text-[#454CEF] text-sm cursor-pointer">
+          <h3 className="absolute top-1 right-0 font-medium text-subprimary-500 text-sm cursor-pointer">
             Forgot password?
           </h3>
           <label className="font-semibold text-normal" htmlFor="password">
@@ -47,14 +47,14 @@ export const LoginSlide = () => {
           color="primary"
           className="w-[310px] xxs:w-[320px] h-[44px] mt-[9%]"
         >
-          <h1 className="text-white font-semibold">Log In</h1>
+          <h1 className="text-neutral-50 font-semibold">Log In</h1>
         </BaseButton>
         <div
           onClick={toCreateAccount}
           className="mt-[6%] font-medium text-center"
         >
           <span>No Account?&nbsp;</span>
-          <span className="text-[#454CEF] select-none cursor-pointer">
+          <span className="text-subprimary-500 select-none cursor-pointer">
             Create one
           </span>
         </div>
@@ -69,7 +69,7 @@ export const LoginSlide = () => {
           className="w-[320px] h-[44px] mt-[9%] flex items-center justify-center gap-4"
         >
           <SvgColoredGoogleLogo className="" style={{ width: "20px" }} />
-          <h1 className="text-black text-sm font-semibold">
+          <h1 className="text-neutral-900 text-sm font-semibold">
             Continue with Google
           </h1>
         </BaseButton>
