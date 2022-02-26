@@ -3,19 +3,19 @@ import { FC, useEffect, useState } from "react";
 
 export const MainGrid: FC = ({ children }) => {
   const [gridTc, setGridTc] = useState("");
-  const screenType = useScreenType();
+  const { isDesktop, isMobile } = useScreenType();
 
   useEffect(() => {
-    if (screenType == "2-cols") {
-      setGridTc("250px 1fr");
-    } else if (screenType == "1-cols") {
+    if (isDesktop) {
+      setGridTc("auto 1fr");
+    } else if (isMobile) {
       setGridTc("1fr");
     }
-  }, [screenType]);
+  }, [isDesktop, isMobile]);
 
   return (
     <div
-      className="w-full min-h-screen overflow-x-hidden"
+      className="w-full h-full overflow-x-hidden"
       style={{
         display: "grid",
         gridTemplateColumns: gridTc,

@@ -7,7 +7,7 @@
 
 html {
   /* prevent overflow-y page reposition */
-  overflow-y: scroll;
+  padding-left: calc(100vw - 100%);
 }
 
 html,
