@@ -8,7 +8,7 @@ export interface BaseInputProps
 export const BaseInput: FC<BaseInputProps> = ({ className, ...props }) => {
   return (
     <input
-      className={`bg-[#FAFAFF] border-2 border-[#C7C7CC] rounded-[5px] outline-none p-2 text-sm ${className}`}
+      className={`bg-neutral-50 border-2 border-neutral-400 rounded-[5px] outline-none p-2 text-sm ${className}`}
       type="text"
       {...props}
     />

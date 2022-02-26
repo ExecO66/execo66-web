@@ -36,7 +36,7 @@ export const AuthCard: FC = () => {
 
   return (
     <section className="w-full h-full lg:w-[430px] xl:w-[63%] lg:h-[85%] transition-all duration-200 overflow-hidden bg-white md:rounded-lg xl:grid xl:grid-cols-2">
-      <article className="bg-[#F5F5FA] px-16 hidden xl:flex xl:flex-col items-center justify-center z-50">
+      <article className="bg-neutral-100 px-16 hidden xl:flex xl:flex-col items-center justify-center z-50">
         <div className="w-full h-[200px] overflow-hidden relative">
           <Image
             className="object-contain w-full"

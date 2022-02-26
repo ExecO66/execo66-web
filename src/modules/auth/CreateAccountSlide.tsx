@@ -14,12 +14,12 @@ export const CreateAccountSlide = () => {
   }
 
   return (
-    <div className="w-full h-full flex justify-center">
+    <div className="w-full h-full flex justify-center bg-neutral-50">
       <div className="p-8 my-[15%] sm:my-[10%] flex flex-col justify-center">
-        <h1 className="text-2xl xxs:text-3xl tracking-wide font-bold">
+        <h1 className="text-2xl xxs:text-3xl tracking-wide font-bold text-neutral-900">
           Welcome to ExecO
         </h1>
-        <h1 className="text-lg xxs:text-xl tracking-wide font-bold text-[#957ED6] mb-[33px]">
+        <h1 className="text-lg xxs:text-xl tracking-wide font-bold text-primary-500 mb-[33px]">
           Create Account
         </h1>
         <div className="flex flex-col gap-[6px]">
@@ -53,11 +53,11 @@ export const CreateAccountSlide = () => {
           color="primary"
           className="w-[310px] xxs:w-[320px] h-[44px] mt-[9%]"
         >
-          <h1 className="text-white font-semibold">Create Account</h1>
+          <h1 className="text-neutral-50 font-semibold">Create Account</h1>
         </BaseButton>
         <div onClick={toLogin} className="mt-[6%] font-medium text-center">
           <span>Have an Account?&nbsp;</span>
-          <span className="text-[#454CEF] select-none cursor-pointer">
+          <span className="text-subprimary-500 select-none cursor-pointer">
             Log in
           </span>
         </div>
@@ -72,7 +72,7 @@ export const CreateAccountSlide = () => {
           className="w-[320px] h-[44px] mt-[9%] flex items-center justify-center gap-4"
         >
           <SvgColoredGoogleLogo className="" style={{ width: "20px" }} />
-          <h1 className="text-black text-sm font-semibold">
+          <h1 className="text-neutral-900 text-sm font-semibold">
             Continue with Google
           </h1>
         </BaseButton>
