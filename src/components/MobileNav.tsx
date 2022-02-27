@@ -5,25 +5,23 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 
-export const Nav: FC = () => {
+export const MobileNav: FC = () => {
   const [idx, setIdx] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
-    if (router.isReady) {
-      switch (router.pathname) {
-        case "/assignments":
-          setIdx(0);
-          break;
-        case "/settings":
-          setIdx(1);
-      }
+    switch (router.pathname) {
+      case "/assignments":
+        setIdx(0);
+        break;
+      case "/settings":
+        setIdx(1);
     }
   }, [router]);
 
   return (
-    <nav className="w-[90px] xl:min-w-[250px] xl:w-[15vw] h-screen bg-neutral-50 border-r-[1px] border-neutral-300">
-      <div className="mx-5 mb-5 mt-16 inline-block w-auto xl:w-5/6">
+    <nav className="w-screen fixed bottom-0 p-3 bg-neutral-50 border-t-[1px] border-neutral-300 flex justify-center gap-10">
+      <div className="">
         <Link href="/assignments">
           <a>
             <div
@@ -50,7 +48,7 @@ export const Nav: FC = () => {
         </Link>
       </div>
 
-      <div className="mx-5 mb-5 w-auto xl:w-5/6 inline-block">
+      <div className="">
         <Link href="/settings">
           <a>
             <div
@@ -77,7 +75,7 @@ export const Nav: FC = () => {
         </Link>
       </div>
 
-      <div className="mx-5 mb-5 w-auto xl:w-5/6 inline-block">
+      <div className="">
         <a
           onClick={() =>
             router.push(router.pathname + "?profile=true", undefined, {
