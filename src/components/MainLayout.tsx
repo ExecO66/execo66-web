@@ -1,5 +1,6 @@
 import { useScreenType } from "hooks/useScreenType";
 import { FC } from "react";
+import { ClientRender } from "./ClientRender";
 import { MainGrid } from "./MainGrid";
 import { MobileNav } from "./MobileNav";
 import { Nav } from "./Nav";
@@ -11,14 +12,14 @@ export const MainLayout: FC = ({ children }) => {
   return (
     <div className="w-full h-screen overflow-y-hidden flex flex-col">
       <Topbar />
-      <div className="w-full h-full">
-        <MainGrid>
-          <>
+      <ClientRender>
+        <div className="w-full h-full">
+          <MainGrid>
             {!isMobile ? <Nav /> : <MobileNav />}
             {children}
-          </>
-        </MainGrid>
-      </div>
+          </MainGrid>
+        </div>
+      </ClientRender>
     </div>
   );
 };
