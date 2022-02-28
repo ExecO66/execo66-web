@@ -40,7 +40,8 @@
   --color-neutral-50: #fafafa;
 }
 
-html {
+html,
+.prevent-sb-repos {
   /* prevent overflow-y page reposition */
   padding-left: calc(100vw - 100%);
 }
