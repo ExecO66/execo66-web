@@ -20,7 +20,7 @@ export const MobileNav: FC = () => {
   }, [router]);
 
   return (
-    <nav className="w-screen fixed bottom-0 p-3 bg-neutral-50 border-t-[1px] border-neutral-300 flex justify-center gap-10">
+    <nav className="w-screen fixed bottom-0 p-3 bg-neutral-50 border-t-[1px] border-neutral-300 flex justify-center gap-10 z-[9999]">
       <div className="">
         <Link href="/assignments">
           <a>
