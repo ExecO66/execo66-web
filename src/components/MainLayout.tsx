@@ -2,7 +2,7 @@ import { useScreenType } from "hooks/useScreenType";
 import { FC } from "react";
 import { ClientRender } from "./ClientRender";
 import { MainGrid } from "./MainGrid";
-import { MobileNav } from "./MobileNav";
+import { MobileNav, MobileNavPlaceholder } from "./MobileNav";
 import { Nav } from "./Nav";
 import { Topbar } from "./Topbar";
 
@@ -17,6 +17,7 @@ export const MainLayout: FC = ({ children }) => {
           <MainGrid>
             {!isMobile ? <Nav /> : <MobileNav />}
             {children}
+            {isMobile && <MobileNavPlaceholder />}
           </MainGrid>
         </div>
       </ClientRender>

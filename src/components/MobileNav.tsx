@@ -5,6 +5,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 
+// meant to fix mobile nav blocking content on the bottom of screen
+export const MobileNavPlaceholder: FC = () => {
+  return <div className="h-12 p-4"></div>;
+};
+
 export const MobileNav: FC = () => {
   const [idx, setIdx] = useState(0);
   const router = useRouter();
