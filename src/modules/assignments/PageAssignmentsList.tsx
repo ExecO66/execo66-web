@@ -7,7 +7,6 @@ import {
   BaseDropdownListProps,
 } from "../../components/BaseDropdownList";
 import { Assignment, AssignmentProps } from "./Assignment";
-import { useScreenType } from "../../hooks/useScreenType";
 import { ISOStringToDate, jsonFetchWrapper } from "../../utils";
 import { apiBaseUrl } from "../../constants";
 import { useEffect, useState } from "react";
@@ -17,7 +16,7 @@ type AssignmentData = {
   title: string;
   description: string;
   dueDate: Date;
-  recentSubmissionId: string;
+  recentSubmissionId?: string;
   availableUntil: Date;
   teacherInfo: {
     username: string;
@@ -29,8 +28,6 @@ export const PageAssigmentsList: NextPage = () => {
   const [assignments, setAssignments] = useState<AssignmentData[]>([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
-
-  const { isMobile } = useScreenType();
 
   useEffect(() => {
     jsonFetchWrapper<{
@@ -73,21 +70,21 @@ export const PageAssigmentsList: NextPage = () => {
             <div className="pb-12">
               <BaseDropdownList
                 {...({
-                  title: "Incomplete",
-                  list: assignments.filter((x) => new Date() < x.dueDate),
-                  ListElement: Assignment,
-                  open: true,
-                } as BaseDropdownListProps<AssignmentProps>)}
-              />
-            </div>
-            <div className="pb-12">
-              <BaseDropdownList
-                {...({
-                  title: "Overdue",
-                  list: assignments.filter(
-                    (x) =>
-                      new Date() > x.dueDate && new Date() < x.availableUntil
-                  ),
+                  title: "Active",
+                  list: assignments
+                    .filter((x) => new Date() < x.dueDate)
+                    .sort((a, b) => {
+                      if (
+                        typeof a.assignmentId == "undefined" &&
+                        typeof b.assignmentId == "undefined"
+                      ) {
+                        return 0;
+                      } else if (typeof a.assignmentId == "undefined") {
+                        return -1;
+                      } else {
+                        return 1;
+                      }
+                    }),
                   ListElement: Assignment,
                   open: true,
                 } as BaseDropdownListProps<AssignmentProps>)}
@@ -98,11 +95,10 @@ export const PageAssigmentsList: NextPage = () => {
                 {...({
                   title: "Past",
                   list: assignments.filter(
-                    (x) =>
-                      new Date() > x.dueDate && new Date() > x.availableUntil
+                    (x) => new Date() > x.availableUntil
                   ),
                   ListElement: Assignment,
-                  open: isMobile,
+                  open: true,
                 } as BaseDropdownListProps<AssignmentProps>)}
               />
             </div>

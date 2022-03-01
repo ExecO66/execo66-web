@@ -54,6 +54,10 @@ module.exports = {
         100: "var(--color-neutral-100)",
         50: "var(--color-neutral-50)",
       },
+      valid: {
+        green: "var(--color-valid-green)",
+        red: "var(--color-valid-red)",
+      },
     },
     screens: {
       xxs: "360px",

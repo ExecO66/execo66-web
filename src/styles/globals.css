@@ -38,6 +38,9 @@
   --color-neutral-200: #e5e5e5;
   --color-neutral-100: #f5f5f5;
   --color-neutral-50: #fafafa;
+
+  --color-valid-green: #61b742;
+  --color-valid-red: #d00b0b;
 }
 
 html,
