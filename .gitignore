@@ -6,7 +6,7 @@
 
 *.log
 
-.env.dev
-.env.prod
+.env.*
+!.env.example
 
 *.tsbuildinfo

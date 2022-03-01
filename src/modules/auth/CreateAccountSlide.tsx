@@ -1,7 +1,7 @@
-import { BaseButton } from "components/BaseButton";
-import { BaseInput } from "components/BaseInput";
-import { TextSeparationBar } from "components/TextSeparationBar";
-import { SvgColoredGoogleLogo } from "icons/ColoredGoogleLogo";
+import { BaseButton } from "../../components/BaseButton";
+import { BaseInput } from "../../components/BaseInput";
+import { TextSeparationBar } from "../../components/TextSeparationBar";
+import { SvgColoredGoogleLogo } from "../../icons/ColoredGoogleLogo";
 import { useRouter } from "next/router";
 
 export const CreateAccountSlide = () => {
