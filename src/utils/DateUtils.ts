@@ -76,3 +76,19 @@ export function ISOStringToDate(dateStr: string): Date {
 
   return date;
 }
+
+export function formatTwelveHHMin(date: Date): string {
+  const hr = date.getHours();
+  let twelveHr: number;
+  let apPm: string;
+
+  if (hr <= 12) {
+    twelveHr = hr;
+    apPm = "AM";
+  }
+
+  twelveHr = hr - 12;
+  apPm = "PM";
+
+  return `${twelveHr}:${date.getMinutes()} ${apPm}`;
+}
