@@ -1,6 +1,6 @@
-import { BaseButton } from "components/BaseButton";
-import { BaseInput } from "components/BaseInput";
-import { TextSeparationBar } from "components/TextSeparationBar";
+import { BaseButton } from "../../components/BaseButton";
+import { BaseInput } from "../../components/BaseInput";
+import { TextSeparationBar } from "../../components/TextSeparationBar";
 import { useRouter } from "next/router";
 import { SvgColoredGoogleLogo } from "../../icons/ColoredGoogleLogo";
 import { apiBaseUrl, __prod__ } from "../../constants";

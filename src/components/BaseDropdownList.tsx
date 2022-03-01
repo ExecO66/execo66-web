@@ -1,4 +1,4 @@
-import { SvgChevronDown } from "icons/ChevronDown";
+import { SvgChevronDown } from "../icons/ChevronDown";
 import { FC, useState } from "react";
 
 export interface BaseDropdownListProps<T> {

@@ -1,4 +1,4 @@
-import { IconComponent } from "types/IconComponent";
+import { IconComponent } from "../types/IconComponent";
 
 export const SvgOutlineDashboard: IconComponent = (props) => (
   <svg

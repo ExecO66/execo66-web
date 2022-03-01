@@ -1,8 +1,8 @@
-import { EclipseProfilePicture } from "components/EclipseProfilePicture";
-import { SvgChevronDown } from "icons/ChevronDown";
+import { EclipseProfilePicture } from "../../components/EclipseProfilePicture";
+import { SvgChevronDown } from "../../icons/ChevronDown";
 import Link from "next/link";
 import { FC } from "react";
-import * as utils from "utils";
+import * as utils from "../../utils";
 
 export interface AssignmentProps {
   assignmentId: string;

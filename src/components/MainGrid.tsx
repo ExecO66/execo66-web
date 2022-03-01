@@ -1,4 +1,4 @@
-import { useScreenType } from "hooks/useScreenType";
+import { useScreenType } from "../hooks/useScreenType";
 import { FC, useEffect, useState } from "react";
 
 export const MainGrid: FC = ({ children }) => {

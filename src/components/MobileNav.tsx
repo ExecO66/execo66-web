@@ -1,6 +1,6 @@
-import { SvgOutlineDashboard } from "icons/OutlineDashboard";
-import { SvgOutlineGear } from "icons/OutlineGear";
-import { SvgOutlineProfile } from "icons/OutlineProfile";
+import { SvgOutlineDashboard } from "../icons/OutlineDashboard";
+import { SvgOutlineGear } from "../icons/OutlineGear";
+import { SvgOutlineProfile } from "../icons/OutlineProfile";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";

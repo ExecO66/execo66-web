@@ -1,11 +1,11 @@
-import { SectionHeader } from "components/SectionHeader";
-import { MainLayout } from "components/MainLayout";
-import { Path } from "components/Path";
+import { SectionHeader } from "../../components/SectionHeader";
+import { MainLayout } from "../../components/MainLayout";
+import { Path } from "../../components/Path";
 import { NextPage } from "next";
 import {
   BaseDropdownList,
   BaseDropdownListProps,
-} from "components/BaseDropdownList";
+} from "../../components/BaseDropdownList";
 import { Assignment, AssignmentProps } from "./Assignment";
 import { useScreenType } from "../../hooks/useScreenType";
 import { ISOStringToDate, jsonFetchWrapper } from "../../utils";
@@ -62,7 +62,7 @@ export const PageAssigmentsList: NextPage = () => {
   if (loading) {
     return (
       <MainLayout>
-        <div>Loading</div>;
+        <div>LOADING</div>;
       </MainLayout>
     );
   }
@@ -70,7 +70,7 @@ export const PageAssigmentsList: NextPage = () => {
   if (err) {
     return (
       <MainLayout>
-        <div>Error</div>;
+        <div>AHHHHHHHHHHHHHH</div>;
       </MainLayout>
     );
   }

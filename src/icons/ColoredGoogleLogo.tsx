@@ -1,4 +1,4 @@
-import { IconComponent } from "types/IconComponent";
+import { IconComponent } from "../types/IconComponent";
 
 export const SvgColoredGoogleLogo: IconComponent = (props) => (
   <svg
