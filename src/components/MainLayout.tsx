@@ -11,7 +11,7 @@ export const MainLayout: FC = ({ children }) => {
 
   return (
     <div className="w-full h-screen overflow-y-hidden flex flex-col">
-      <Topbar />
+      {isMobile && <Topbar />}
       <div className="w-full h-full">
         <MainGrid>
           {!isMobile ? <Nav /> : <MobileNav />}

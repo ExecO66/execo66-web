@@ -22,8 +22,12 @@ export const Nav: FC = () => {
   }, [router]);
 
   return (
-    <nav className="w-[90px] xl:min-w-[250px] xl:w-[15vw] h-full bg-neutral-50 border-r-[1px] border-neutral-300">
-      <div className="mx-5 mb-5 mt-16 inline-block w-auto xl:w-5/6">
+    <nav className="w-[90px] xl:min-w-[250px] xl:w-[15vw] h-full bg-neutral-50 border-r-[1px] border-neutral-300 flex flex-col">
+      <h1 className="hidden xl:block text-primary-500 font-semibold text-xl px-6 py-5">
+        ExecO
+      </h1>
+
+      <div className="mx-5 mb-5 mt-5 inline-block w-auto xl:w-5/6">
         <Link href="/assignments">
           <a>
             <div
