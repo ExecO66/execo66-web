@@ -7,44 +7,73 @@ import {
   BaseDropdownListProps,
 } from "components/BaseDropdownList";
 import { Assignment, AssignmentProps } from "./Assignment";
-import { useScreenType } from "hooks/useScreenType";
-import { ISOStringToDate } from "utils";
+import { useScreenType } from "../../hooks/useScreenType";
+import { ISOStringToDate, jsonFetchWrapper } from "../../utils";
+import { apiBaseUrl } from "../../constants";
+import { useEffect, useState } from "react";
+
+type AssignmentData = {
+  assignmentId: string;
+  title: string;
+  description: string;
+  dueDate: Date;
+  recentSubmissionId: string;
+  availableUntil: Date;
+  teacherInfo: {
+    username: string;
+    profilePIcture: string;
+  };
+};
 
 export const PageAssigmentsList: NextPage = () => {
-  const assignments = [
-    {
-      title: "Overdue 1",
-      availableUntil: ISOStringToDate("2022-03-05T19:03:20-06:00"),
-      due: ISOStringToDate("2022-03-01T19:03:20-06:00"),
-      id: "1",
-      teacherInfo: {
-        profilePicture: "",
-        username: "Mr. Herman",
-      },
-    },
-    {
-      title: "Overdue 1",
-      availableUntil: ISOStringToDate("2022-02-28T19:03:20-06:00"),
-      due: ISOStringToDate("2022-02-26T19:03:20-06:00"),
-      id: "1",
-      teacherInfo: {
-        profilePicture: "",
-        username: "Mr. Herman",
-      },
-    },
-    {
-      title: "Overdue 1",
-      availableUntil: ISOStringToDate("2022-02-25T19:03:20-06:00"),
-      due: ISOStringToDate("2022-02-20T19:03:20-06:00"),
-      id: "1",
-      teacherInfo: {
-        profilePicture: "",
-        username: "Mr. Herman",
-      },
-    },
-  ] as AssignmentProps[];
+  const [assignments, setAssignments] = useState<AssignmentData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState(false);
 
   const { isMobile } = useScreenType();
+
+  useEffect(() => {
+    jsonFetchWrapper<{
+      assignments: (AssignmentData & {
+        dueDate: string;
+        availableUntil: string;
+      })[];
+    }>(`${apiBaseUrl}/student-assignment`, {
+      method: "GET",
+      credentials: "include",
+    }).then(({ data, error }) => {
+      if (data !== null && error === null) {
+        setAssignments(
+          data.assignments.map(({ dueDate, availableUntil, ...a }) => ({
+            dueDate: ISOStringToDate(dueDate),
+            availableUntil: ISOStringToDate(availableUntil),
+            ...a,
+          }))
+        );
+        setLoading(false);
+        setErr(false);
+      } else {
+        setErr(true);
+        setLoading(false);
+      }
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <MainLayout>
+        <div>Loading</div>;
+      </MainLayout>
+    );
+  }
+
+  if (err) {
+    return (
+      <MainLayout>
+        <div>Error</div>;
+      </MainLayout>
+    );
+  }
 
   return (
     <MainLayout>
@@ -61,7 +90,7 @@ export const PageAssigmentsList: NextPage = () => {
               <BaseDropdownList
                 {...({
                   title: "Incomplete",
-                  list: assignments.filter((x) => new Date() < x.due),
+                  list: assignments.filter((x) => new Date() < x.dueDate),
                   ListElement: Assignment,
                   open: true,
                 } as BaseDropdownListProps<AssignmentProps>)}
@@ -72,7 +101,8 @@ export const PageAssigmentsList: NextPage = () => {
                 {...({
                   title: "Overdue",
                   list: assignments.filter(
-                    (x) => new Date() > x.due && new Date() < x.availableUntil
+                    (x) =>
+                      new Date() > x.dueDate && new Date() < x.availableUntil
                   ),
                   ListElement: Assignment,
                   open: true,
@@ -84,7 +114,8 @@ export const PageAssigmentsList: NextPage = () => {
                 {...({
                   title: "Past",
                   list: assignments.filter(
-                    (x) => new Date() > x.due && new Date() > x.availableUntil
+                    (x) =>
+                      new Date() > x.dueDate && new Date() > x.availableUntil
                   ),
                   ListElement: Assignment,
                   open: isMobile,

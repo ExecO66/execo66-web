@@ -5,25 +5,26 @@ import { FC } from "react";
 import * as utils from "utils";
 
 export interface AssignmentProps {
-  id: string;
+  assignmentId: string;
   title: string;
+  dueDate: Date;
+  recentSubmissionId: string;
   availableUntil: Date;
-  due: Date;
   teacherInfo: {
-    profilePicture: string;
     username: string;
+    profilePIcture: string;
   };
 }
 
 export const Assignment: FC<AssignmentProps> = ({
   title,
-  id,
-  due,
+  assignmentId,
+  dueDate,
   availableUntil,
   teacherInfo,
 }) => {
   return (
-    <Link href={`/assignments/${id}`}>
+    <Link href={`/assignments/${assignmentId}`}>
       <a>
         <div className="w-5/6 max-w-[680px] px-5 py-5 bg-[#ffffff] hover:bg-primary-100 shadow-md rounded-md grid grid-cols-[1fr_50px] items-center">
           <div className="w-5/6 grid sm:grid-rows-2 gap-3">
@@ -38,8 +39,8 @@ export const Assignment: FC<AssignmentProps> = ({
                   Due
                 </span>
                 <span className="text-subprimary-400 font-medium whitespace-nowrap">{`${utils.getMonthAbbr(
-                  due
-                )} ${due.getDate()}`}</span>
+                  dueDate
+                )} ${dueDate.getDate()}`}</span>
               </div>
 
               <div>

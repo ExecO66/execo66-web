@@ -1,8 +1,9 @@
 import { BaseButton } from "components/BaseButton";
 import { BaseInput } from "components/BaseInput";
 import { TextSeparationBar } from "components/TextSeparationBar";
-import { SvgColoredGoogleLogo } from "icons/ColoredGoogleLogo";
 import { useRouter } from "next/router";
+import { SvgColoredGoogleLogo } from "../../icons/ColoredGoogleLogo";
+import { apiBaseUrl, __prod__ } from "../../constants";
 
 export const LoginSlide = () => {
   const router = useRouter();
@@ -11,6 +12,12 @@ export const LoginSlide = () => {
     router.push(router.pathname + "?auth=create-account", undefined, {
       shallow: true,
     });
+  }
+
+  async function loginSubmit() {
+    if (!__prod__) {
+      window.location.href = `${apiBaseUrl}/auth/dev/00000000-0000-0000-0000-000000000001`;
+    }
   }
 
   return (
@@ -46,6 +53,7 @@ export const LoginSlide = () => {
         <BaseButton
           color="primary"
           className="w-[310px] xxs:w-[320px] h-[44px] mt-[9%]"
+          onClick={loginSubmit}
         >
           <h1 className="text-neutral-50 font-semibold">Log In</h1>
         </BaseButton>
