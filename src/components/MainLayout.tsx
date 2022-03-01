@@ -12,15 +12,13 @@ export const MainLayout: FC = ({ children }) => {
   return (
     <div className="w-full h-screen overflow-y-hidden flex flex-col">
       <Topbar />
-      <ClientRender>
-        <div className="w-full h-full">
-          <MainGrid>
-            {!isMobile ? <Nav /> : <MobileNav />}
-            {children}
-            {isMobile && <MobileNavPlaceholder />}
-          </MainGrid>
-        </div>
-      </ClientRender>
+      <div className="w-full h-full">
+        <MainGrid>
+          {!isMobile ? <Nav /> : <MobileNav />}
+          <ClientRender>{children}</ClientRender>
+          {isMobile && <MobileNavPlaceholder />}
+        </MainGrid>
+      </div>
     </div>
   );
 };
