@@ -21,7 +21,7 @@ type AssignmentData = {
   availableUntil: Date;
   teacherInfo: {
     username: string;
-    profilePIcture: string;
+    profilePicture: string;
   };
 };
 
@@ -58,22 +58,6 @@ export const PageAssigmentsList: NextPage = () => {
       }
     });
   }, []);
-
-  if (loading) {
-    return (
-      <MainLayout>
-        <div>LOADING</div>;
-      </MainLayout>
-    );
-  }
-
-  if (err) {
-    return (
-      <MainLayout>
-        <div>AHHHHHHHHHHHHHH</div>;
-      </MainLayout>
-    );
-  }
 
   return (
     <MainLayout>

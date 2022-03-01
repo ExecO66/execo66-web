@@ -12,7 +12,7 @@ export interface AssignmentProps {
   availableUntil: Date;
   teacherInfo: {
     username: string;
-    profilePIcture: string;
+    profilePicture: string;
   };
 }
 
