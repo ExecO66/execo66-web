@@ -39,26 +39,23 @@ export function getMonthFullname(date: Date): string {
 export function toISOString(date: Date): string {
   const tzo = -date.getTimezoneOffset();
   const dif = tzo >= 0 ? "+" : "-";
-  const pad = function (num: number) {
-    return (num < 10 ? "0" : "") + num;
-  };
 
   return (
     date.getFullYear() +
     "-" +
-    pad(date.getMonth() + 1) +
+    padNum(date.getMonth() + 1) +
     "-" +
-    pad(date.getDate()) +
+    padNum(date.getDate()) +
     "T" +
-    pad(date.getHours()) +
+    padNum(date.getHours()) +
     ":" +
-    pad(date.getMinutes()) +
+    padNum(date.getMinutes()) +
     ":" +
-    pad(date.getSeconds()) +
+    padNum(date.getSeconds()) +
     dif +
-    pad(Math.floor(Math.abs(tzo) / 60)) +
+    padNum(Math.floor(Math.abs(tzo) / 60)) +
     ":" +
-    pad(Math.abs(tzo) % 60)
+    padNum(Math.abs(tzo) % 60)
   );
 }
 
@@ -85,10 +82,15 @@ export function formatTwelveHHMin(date: Date): string {
   if (hr <= 12) {
     twelveHr = hr;
     apPm = "AM";
+  } else {
+    twelveHr = hr - 12;
   }
 
-  twelveHr = hr - 12;
   apPm = "PM";
 
-  return `${twelveHr}:${date.getMinutes()} ${apPm}`;
+  return `${twelveHr}:${padNum(date.getMinutes())} ${apPm}`;
+}
+
+function padNum(n: number) {
+  return (n < 10 ? "0" : "") + n;
 }
