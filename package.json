@@ -11,7 +11,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:format": "next lint --fix"
+    "lint:format": "next lint --fix",
+    "cyp:open": "yarn cyp:open:chrome",
+    "cyp:open:chrome": "cypress open --browser chrome",
+    "cyp:open:firefox": "cypress open --browser firefox",
+    "cyp:open:edge": "cypress open --browser edge",
+    "cyp:run": "yarn cyp:run:chrome",
+    "cyp:run:chrome": "cypress run --headless --browser chrome",
+    "cyp:run:edge": "cypress run --headless --browser edge",
+    "cyp:run:firefox": "cypress run --headless --browser firefox"
   },
   "dependencies": {
     "next": "12.0.8",
@@ -26,6 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
     "autoprefixer": "^10.4.2",
+    "cypress": "^9.5.1",
     "eslint": "8.7.0",
     "eslint-config-next": "12.0.8",
     "eslint-config-prettier": "^8.3.0",

@@ -9,11 +9,14 @@ export interface AssignmentProps {
   assignmentId: string;
   title: string;
   dueDate: Date;
-  recentSubmissionId?: string;
   availableUntil: Date;
   teacherInfo: {
     username: string;
     profilePicture: string;
+  };
+  submissionInfo?: {
+    submissionId: string;
+    submissionDate: Date;
   };
 }
 
@@ -23,24 +26,31 @@ export const Assignment: FC<AssignmentProps> = ({
   dueDate,
   availableUntil,
   teacherInfo,
-  recentSubmissionId,
+  submissionInfo,
 }) => {
+  const incomplete = typeof submissionInfo == "undefined";
+
   return (
     <Link href={`/assignments/${assignmentId}`} passHref>
-      <div className="w-full max-w-[900px] px-5 py-5 bg-[#ffffff] hover:bg-primary-100 shadow-md rounded-md grid grid-cols-[1fr_50px] items-center cursor-pointer">
+      <div
+        className="w-full max-w-[900px] px-5 py-5 bg-[#ffffff] hover:bg-primary-100 shadow-md rounded-md grid grid-cols-[1fr_50px] items-center cursor-pointer"
+        data-test={`assignment:item:${incomplete ? "incomplete" : "submitted"}`}
+      >
         <div className="w-5/6 grid lg:grid-rows-2 gap-3">
           <div className="w-full overflow-hidden grid lg:grid-cols-[auto_1fr] gap-2 lg:gap-8 items-center">
             <h1 className="font-semibold text-xl overflow-hidden whitespace-nowrap overflow-ellipsis">
               {title}
             </h1>
-            <div
-              className={`w-24 h-6 rounded-2xl text-sm font-semibold text-neutral-50 flex items-center justify-center ${
-                recentSubmissionId != undefined
-                  ? "bg-valid-green"
-                  : "bg-valid-red"
-              }`}
-            >
-              {recentSubmissionId != undefined ? "Submitted" : "Incomplete"}
+            <div className="flex gap-3">
+              <div
+                className={`w-24 h-6 rounded-2xl text-sm font-semibold text-neutral-50 flex items-center justify-center ${
+                  !incomplete
+                    ? "bg-valid-green"
+                    : "bg-valid-yellow text-shadow-lg"
+                }`}
+              >
+                {!incomplete ? "Submitted" : "Incomplete"}
+              </div>
             </div>
           </div>
           <div className="w-full flex flex-col lg:flex-row gap-3 lg:gap-0 justify-between lg:items-center">

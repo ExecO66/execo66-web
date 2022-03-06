@@ -1,7 +1,8 @@
 import { SvgChevronDown } from "../icons/ChevronDown";
 import { FC, useState } from "react";
+import { ComponentTestingProps } from "../types/Testing";
 
-export interface BaseDropdownListProps<T> {
+export interface BaseDropdownListProps<T> extends ComponentTestingProps {
   title: string;
   list: T[];
   ListElement: FC<T>;
@@ -13,11 +14,12 @@ export const BaseDropdownList: FC<BaseDropdownListProps<any>> = <T,>({
   title,
   ListElement,
   open: defaultOpen = false,
+  dataTest,
 }: BaseDropdownListProps<T>) => {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full" {...(dataTest && { "data-test": dataTest })}>
       <div
         className="flex items-center gap-3 select-none cursor-pointer"
         onClick={() => setOpen(!open)}

@@ -16,11 +16,14 @@ type AssignmentData = {
   title: string;
   description: string;
   dueDate: Date;
-  recentSubmissionId?: string;
   availableUntil: Date;
   teacherInfo: {
     username: string;
     profilePicture: string;
+  };
+  submissionInfo?: {
+    submissionId: string;
+    submissionDate: Date;
   };
 };
 
@@ -34,6 +37,10 @@ export const PageAssigmentsList: NextPage = () => {
       assignments: (AssignmentData & {
         dueDate: string;
         availableUntil: string;
+        submissionInfo?: {
+          submissionId: string;
+          submissionDate: string;
+        };
       })[];
     }>(`${apiBaseUrl}/student-assignment`, {
       method: "GET",
@@ -41,11 +48,21 @@ export const PageAssigmentsList: NextPage = () => {
     }).then(({ data, error }) => {
       if (data !== null && error === null) {
         setAssignments(
-          data.assignments.map(({ dueDate, availableUntil, ...a }) => ({
-            dueDate: ISOStringToDate(dueDate),
-            availableUntil: ISOStringToDate(availableUntil),
-            ...a,
-          }))
+          data.assignments.map(
+            ({ dueDate, availableUntil, submissionInfo, ...a }) => ({
+              dueDate: ISOStringToDate(dueDate),
+              availableUntil: ISOStringToDate(availableUntil),
+              ...(submissionInfo?.submissionDate && {
+                submissionInfo: {
+                  ...submissionInfo,
+                  submissionDate: ISOStringToDate(
+                    submissionInfo.submissionDate
+                  ),
+                },
+              }),
+              ...a,
+            })
+          )
         );
         setLoading(false);
         setErr(false);
@@ -55,6 +72,15 @@ export const PageAssigmentsList: NextPage = () => {
       }
     });
   }, []);
+
+  /*
+    active assignments:
+      - still available
+    past assignments:
+      - past available 
+    
+    incomplete / submitted
+  */
 
   return (
     <MainLayout>
@@ -72,7 +98,8 @@ export const PageAssigmentsList: NextPage = () => {
                 {...({
                   title: "Active",
                   list: assignments
-                    .filter((x) => new Date() < x.dueDate)
+                    .filter((x) => new Date() <= x.availableUntil)
+
                     .sort((a, b) => {
                       if (
                         typeof a.assignmentId == "undefined" &&
@@ -87,6 +114,7 @@ export const PageAssigmentsList: NextPage = () => {
                     }),
                   ListElement: Assignment,
                   open: true,
+                  dataTest: "assignment:list:active",
                 } as BaseDropdownListProps<AssignmentProps>)}
               />
             </div>
@@ -99,6 +127,7 @@ export const PageAssigmentsList: NextPage = () => {
                   ),
                   ListElement: Assignment,
                   open: true,
+                  dataTest: "assignment:list:past",
                 } as BaseDropdownListProps<AssignmentProps>)}
               />
             </div>
