@@ -26,8 +26,8 @@ type AssignmentData = {
 
 export const PageAssigmentsList: NextPage = () => {
   const [assignments, setAssignments] = useState<AssignmentData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [err, setErr] = useState(false);
+  const [_loading, setLoading] = useState(true);
+  const [_err, setErr] = useState(false);
 
   useEffect(() => {
     jsonFetchWrapper<{
